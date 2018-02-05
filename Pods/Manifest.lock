@@ -1,20 +1,46 @@
 PODS:
+  - Differentiator (3.0.2)
   - RxCocoa (4.1.1):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.2):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxFlow (1.1.0):
     - RxCocoa (>= 4.0.0)
     - RxSwift (>= 4.0.0)
   - RxSwift (4.1.1)
+  - Sourcery (0.10.1)
+  - TinyConstraints (3.1.0)
+  - ViewComposer (0.2.31):
+    - Sourcery (> 0.8)
 
 DEPENDENCIES:
+  - RxDataSources
   - RxFlow
   - RxSwift
+  - TinyConstraints
+  - ViewComposer (from `https://github.com/Sajjon/ViewComposer.git`)
+
+EXTERNAL SOURCES:
+  ViewComposer:
+    :git: https://github.com/Sajjon/ViewComposer.git
+
+CHECKOUT OPTIONS:
+  ViewComposer:
+    :commit: 84de23ebfd98c16b01e1b81d89fd7b8ba0dee206
+    :git: https://github.com/Sajjon/ViewComposer.git
 
 SPEC CHECKSUMS:
+  Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   RxCocoa: fd0862fd2df95fa55562ad28ffd2522c25eb4a85
+  RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxFlow: a15689752f0b8a97d903d8a425b217cefd887103
   RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
+  Sourcery: ac71ac4d490f62fd381a9f3b558f3093d91bddd5
+  TinyConstraints: 4721a4b303c799328867078ade6560e152df54d1
+  ViewComposer: 9a79824697ab67eaf85f407a04e11f6cbe1c2df9
 
-PODFILE CHECKSUM: 20f01ea7c5b21ce3169a9dd589b56e74a74c01d0
+PODFILE CHECKSUM: a15a1aa93e67c2231e9c903ac5b2ba2ccc78c8fd
 
 COCOAPODS: 1.4.0

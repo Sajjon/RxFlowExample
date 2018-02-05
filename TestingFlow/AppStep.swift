@@ -11,5 +11,5 @@ import RxFlow
 
 enum AppStep: Step {
     case initial, signInOrSignUp, signIn, signUp
-    case main, home, book, profile, more
+    case main, myStays, book, profile, more
 }

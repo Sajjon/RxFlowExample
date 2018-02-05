@@ -8,33 +8,17 @@
 
 import UIKit
 import RxSwift
+import ViewComposer
+import TinyConstraints
 
 final class SignUpViewController: UIViewController {
     
-    lazy var emailField: UITextField = {
-        let textfield = UITextField(frame: .zero)
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.placeholder = "Email"
-        return textfield
-    }()
+    lazy var emailField: UITextField = fieldStyle <- .placeholder("Email")
+    lazy var passwordField: UITextField = fieldStyle <<- [.placeholder("Password"), .isSecureTextEntry(true)]
+    lazy var signUpButton: UIButton = buttonStyle <<- [.text("Sign Up"), .color(.blue)]
     
-    lazy var passwordField: UITextField = {
-        let textfield = UITextField(frame: .zero)
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.placeholder = "Password"
-        textfield.isSecureTextEntry = true
-        return textfield
-    }()
+    lazy var stackView: UIStackView = stackViewStyle <- .views([self.emailField, self.passwordField, self.signUpButton, .spacer])
     
-    lazy var signUpButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.setTitle("Sign up", for: .normal)
-        button.backgroundColor = .green
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    lazy var stackView: UIStackView = UIStackView(arrangedSubviews: [self.emailField, self.passwordField, self.signUpButton])
     
     let viewModel: SignUpViewModel
     
@@ -47,7 +31,7 @@ final class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        view.backgroundColor = .white
         setupViews()
         setupBindings()
     }
@@ -71,13 +55,8 @@ private extension SignUpViewController {
     }
     
     func setupViews() {
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        title = "Sign Up"
         view.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.edgesToSuperview()
     }
 }

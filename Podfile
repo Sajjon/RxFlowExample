@@ -7,5 +7,7 @@ target 'TestingFlow' do
 
   pod 'RxSwift'
   pod 'RxFlow'
-
+  pod 'RxDataSources'
+  pod 'TinyConstraints'
+  pod 'ViewComposer', :git => 'https://github.com/Sajjon/ViewComposer.git'
 end

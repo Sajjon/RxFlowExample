@@ -10,8 +10,8 @@ import UIKit
 import RxFlow
 
 final class AppFlow: AppStarter {
-    private let navigationViewController = UINavigationController()
-    private let authService: AuthService
+    let navigationViewController = UINavigationController()
+    let authService: AuthService
     init(withService service: AuthService) {
         self.authService = service
     }

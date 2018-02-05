@@ -9,26 +9,26 @@
 import UIKit
 import RxSwift
 import RxFlow
+import RxSwift
+import ViewComposer
+import TinyConstraints
+
+extension UIView {
+    static var spacer: UIView {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        view.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        return view
+    }
+}
 
 final class AuthViewController: UIViewController {
     
-    lazy var signUpButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.setTitle("Sign up", for: .normal)
-        button.backgroundColor = .blue
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    lazy var signUpButton: UIButton = buttonStyle <<- [.text("Sign Up"), .color(.blue)]
+    lazy var signInButton: UIButton = buttonStyle <- .text("Sign In")
     
-    lazy var signInButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.setTitle("Sign in", for: .normal)
-        button.backgroundColor = .green
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    lazy var stackView: UIStackView = UIStackView(arrangedSubviews: [self.signUpButton, self.signInButton])
+    lazy var stackView: UIStackView = stackViewStyle <- .views([self.signUpButton, self.signInButton, .spacer])
     
     let viewModel: AuthViewModel
     
@@ -60,13 +60,9 @@ private extension AuthViewController {
     }
     
     func setupViews() {
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        title = "Welcome"
+        
         view.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.edgesToSuperview()
     }
 }

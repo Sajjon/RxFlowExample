@@ -9,33 +9,20 @@
 import UIKit
 import RxFlow
 import RxSwift
+import ViewComposer
+import TinyConstraints
 
+let stackViewStyle: ViewStyle = [.axis(.vertical), .spacing(16), .margin(16)]
+let itemStyle: ViewStyle = [.height(50)]
+let fieldStyle: ViewStyle = itemStyle <<- [.borderColor(.gray), .borderWidth(1)]
+let buttonStyle: ViewStyle = itemStyle <<- [.color(.green)]
 final class SignInViewController: UIViewController {
     
-    lazy var emailField: UITextField = {
-        let textfield = UITextField(frame: .zero)
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.placeholder = "Email"
-        return textfield
-    }()
+    lazy var emailField: UITextField = fieldStyle <- .placeholder("Email")
+    lazy var passwordField: UITextField = fieldStyle <<- [.placeholder("Password"), .isSecureTextEntry(true)]
+    lazy var signInButton: UIButton = buttonStyle <- .text("Sign In")
     
-    lazy var passwordField: UITextField = {
-        let textfield = UITextField(frame: .zero)
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.placeholder = "Password"
-        textfield.isSecureTextEntry = true
-        return textfield
-    }()
-    
-    lazy var signInButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.setTitle("Sign in", for: .normal)
-        button.backgroundColor = .blue
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    lazy var stackView: UIStackView = UIStackView(arrangedSubviews: [self.emailField, self.passwordField, self.signInButton])
+    lazy var stackView: UIStackView = stackViewStyle <- .views([self.emailField, self.passwordField, self.signInButton, .spacer])
     
     let viewModel: SignInViewModel
     
@@ -48,7 +35,6 @@ final class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
         setupViews()
         setupBindings()
     }
@@ -72,13 +58,10 @@ private extension SignInViewController {
     }
     
     func setupViews() {
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        title = "Sign In"
+        view.backgroundColor = .white
+
         view.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.edgesToSuperview()
     }
 }

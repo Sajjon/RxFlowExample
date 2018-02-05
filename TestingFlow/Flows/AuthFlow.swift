@@ -11,8 +11,8 @@ import RxFlow
 
 final class AuthFlow: AppStarter, Stepper {
     
-    private let navigationViewController: UINavigationController
-    private let authService: AuthService
+    let navigationViewController: UINavigationController
+    let authService: AuthService
     
     init(navigationViewController: UINavigationController, withService service: AuthService) {
         self.navigationViewController = navigationViewController

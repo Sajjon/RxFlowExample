@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481301DD202853E500404423 /* MyStaysFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301DC202853E500404423 /* MyStaysFlow.swift */; };
+		481301DF2028541C00404423 /* BookingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301DE2028541C00404423 /* BookingService.swift */; };
+		481301E120286BAA00404423 /* MyStaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E020286BAA00404423 /* MyStaysViewController.swift */; };
+		481301E320286D0500404423 /* MyStaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E220286D0500404423 /* MyStaysViewModel.swift */; };
+		481301E52028797E00404423 /* ProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E42028797E00404423 /* ProfileFlow.swift */; };
+		481301E820287BFA00404423 /* RxFlow_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E720287BFA00404423 /* RxFlow_Extension.swift */; };
+		481301EA20287C2A00404423 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E920287C2A00404423 /* ProfileViewModel.swift */; };
+		481301EC20287CF600404423 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301EB20287CF600404423 /* ProfileViewController.swift */; };
 		48B3474020230FDA002A60B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3473F20230FDA002A60B9 /* AppDelegate.swift */; };
 		48B3474720230FDA002A60B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B3474620230FDA002A60B9 /* Assets.xcassets */; };
 		48B3474A20230FDA002A60B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B3474820230FDA002A60B9 /* LaunchScreen.storyboard */; };
@@ -26,6 +34,14 @@
 
 /* Begin PBXFileReference section */
 		159CE822686D7B853F9634D8 /* Pods-TestingFlow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingFlow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestingFlow/Pods-TestingFlow.debug.xcconfig"; sourceTree = "<group>"; };
+		481301DC202853E500404423 /* MyStaysFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStaysFlow.swift; sourceTree = "<group>"; };
+		481301DE2028541C00404423 /* BookingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingService.swift; sourceTree = "<group>"; };
+		481301E020286BAA00404423 /* MyStaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStaysViewController.swift; sourceTree = "<group>"; };
+		481301E220286D0500404423 /* MyStaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStaysViewModel.swift; sourceTree = "<group>"; };
+		481301E42028797E00404423 /* ProfileFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlow.swift; sourceTree = "<group>"; };
+		481301E720287BFA00404423 /* RxFlow_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFlow_Extension.swift; sourceTree = "<group>"; };
+		481301E920287C2A00404423 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		481301EB20287CF600404423 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		48B3473C20230FDA002A60B9 /* TestingFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestingFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B3473F20230FDA002A60B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B3474620230FDA002A60B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +83,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		481301DB202853C400404423 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				481301DC202853E500404423 /* MyStaysFlow.swift */,
+				481301E42028797E00404423 /* ProfileFlow.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		481301E620287BE500404423 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				481301E720287BFA00404423 /* RxFlow_Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		48B3473320230FDA002A60B9 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +121,7 @@
 		48B3473E20230FDA002A60B9 /* TestingFlow */ = {
 			isa = PBXGroup;
 			children = (
+				481301E620287BE500404423 /* Extension */,
 				48B3477520237269002A60B9 /* ViewModels */,
 				48B34772202371A7002A60B9 /* ViewControllers */,
 				48B3476F20237180002A60B9 /* Services */,
@@ -104,6 +138,7 @@
 		48B3476820237033002A60B9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				481301DB202853C400404423 /* Main */,
 				48B347692023703D002A60B9 /* AppStarter.swift */,
 				48B3476B20237073002A60B9 /* AppFlow.swift */,
 				48B3476D20237091002A60B9 /* AuthFlow.swift */,
@@ -115,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				48B347702023718D002A60B9 /* AuthService.swift */,
+				481301DE2028541C00404423 /* BookingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -125,6 +161,8 @@
 				48B34773202371B3002A60B9 /* AuthViewController.swift */,
 				48B3477820237294002A60B9 /* SignUpViewController.swift */,
 				48B3477C202372E9002A60B9 /* SignInViewController.swift */,
+				481301E020286BAA00404423 /* MyStaysViewController.swift */,
+				481301EB20287CF600404423 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +173,8 @@
 				48B3477620237275002A60B9 /* AuthViewModel.swift */,
 				48B3477A202372C1002A60B9 /* SignUpViewModel.swift */,
 				48B3477E20237305002A60B9 /* SignInViewModel.swift */,
+				481301E220286D0500404423 /* MyStaysViewModel.swift */,
+				481301E920287C2A00404423 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -239,15 +279,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TestingFlow/Pods-TestingFlow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewComposer/ViewComposer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewComposer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -280,17 +328,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B3477D202372E9002A60B9 /* SignInViewController.swift in Sources */,
+				481301EA20287C2A00404423 /* ProfileViewModel.swift in Sources */,
+				481301EC20287CF600404423 /* ProfileViewController.swift in Sources */,
 				48B3474020230FDA002A60B9 /* AppDelegate.swift in Sources */,
 				48B3476C20237073002A60B9 /* AppFlow.swift in Sources */,
 				48B3477B202372C1002A60B9 /* SignUpViewModel.swift in Sources */,
+				481301E52028797E00404423 /* ProfileFlow.swift in Sources */,
+				481301DF2028541C00404423 /* BookingService.swift in Sources */,
 				48B347672023701F002A60B9 /* AppStep.swift in Sources */,
 				48B34774202371B3002A60B9 /* AuthViewController.swift in Sources */,
+				481301E320286D0500404423 /* MyStaysViewModel.swift in Sources */,
 				48B3477720237275002A60B9 /* AuthViewModel.swift in Sources */,
 				48B347712023718D002A60B9 /* AuthService.swift in Sources */,
 				48B3477F20237305002A60B9 /* SignInViewModel.swift in Sources */,
 				48B3477920237294002A60B9 /* SignUpViewController.swift in Sources */,
+				481301DD202853E500404423 /* MyStaysFlow.swift in Sources */,
 				48B3476A2023703D002A60B9 /* AppStarter.swift in Sources */,
+				481301E120286BAA00404423 /* MyStaysViewController.swift in Sources */,
 				48B3476E20237091002A60B9 /* AuthFlow.swift in Sources */,
+				481301E820287BFA00404423 /* RxFlow_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
