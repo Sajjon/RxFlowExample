@@ -17,7 +17,7 @@ final class MyStaysFlow: Flow, Stepper {
     
     init(bookingService: BookingService) {
         self.bookingService = bookingService
-        self.step.accept(AppStep.myStays)
+        self.step(to: .main(.tab(.myStays)))
     }
 }
 
@@ -25,9 +25,10 @@ extension MyStaysFlow {
     var root: UIViewController { return navigationViewController }
     
     func navigate(to step: Step) -> NextFlowItems {
-        guard let step = step as? AppStep else { return .stepNotHandled }
-        switch step {
-        case .myStays: return navigateToMyStaysScreen()
+        guard let step = step as? AppStep, case let .main(main) = step else { return .stepNotHandled }
+        switch main {
+        case .tab(.myStays): return navigateToMyStaysScreen()
+        case .tab(.myPage): print("~~~ My Page not handled ~~~"); return .stepNotHandled
         default: return .stepNotHandled
         }
     }

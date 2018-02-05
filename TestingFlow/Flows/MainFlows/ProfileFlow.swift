@@ -17,7 +17,7 @@ final class ProfileFlow: Flow, Stepper {
     
     init(authService: AuthService) {
         self.authService = authService
-        step(to: .profile)
+        step(to: .main(.tab(.myPage)))
     }
 }
 
@@ -25,16 +25,17 @@ extension ProfileFlow {
     var root: UIViewController { return navigationViewController }
     
     func navigate(to step: Step) -> NextFlowItems {
-        guard let step = step as? AppStep else { return .stepNotHandled }
-        switch step {
-        case .profile: return navigateToMyProfileScreen()
+        guard let step = step as? AppStep, case let .main(main) = step else { return .stepNotHandled }
+        switch main {
+        case .tab(.myStays): print("~~~ My Stays not handled ~~~"); return .stepNotHandled
+        case .tab(.myPage): return navigateToMyPageScreen()
         default: return .stepNotHandled
         }
     }
 }
 
 private extension ProfileFlow {
-    func navigateToMyProfileScreen() -> NextFlowItems {
+    func navigateToMyPageScreen() -> NextFlowItems {
         let viewModel = ProfileViewModel(service: authService)
         let viewController = ProfileViewController(viewModel: viewModel)
         self.navigationViewController.pushViewController(viewController, animated: true)

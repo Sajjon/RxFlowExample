@@ -17,7 +17,7 @@ final class AuthFlow: AppStarter, Stepper {
     init(navigationViewController: UINavigationController, withService service: AuthService) {
         self.navigationViewController = navigationViewController
         self.authService = service
-        self.step.accept(AppStep.signInOrSignUp)
+        self.step(to: .authStart)
     }
 }
 
@@ -27,9 +27,9 @@ extension AuthFlow {
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return .stepNotHandled }
         switch step {
-        case .signInOrSignUp: return navigateToSignInOrSignUpScreen()
-        case .signIn: return navigateToSignInScreen()
-        case .signUp: return navigateToSignUpScreen()
+        case .auth(.start): return navigateToSignInOrSignUpScreen()
+        case .auth(.signIn): return navigateToSignInScreen()
+        case .auth(.signUp): return navigateToSignUpScreen()
         case .main: return navigateToMainScreen()
         default: return .stepNotHandled
         }

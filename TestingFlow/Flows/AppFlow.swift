@@ -23,8 +23,9 @@ extension AppFlow {
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return .stepNotHandled }
         switch step {
-        case .initial: return navigate(to: initialStep)
-        case .signInOrSignUp: return navigateToSignInOrSignUpScreen()
+        case .start: return navigate(to: initialStep)
+        case .first: return navigateToFirstRunScreen()
+        case .auth: return navigateToSignInOrSignUpScreen()
         case .main: return navigateToMainScreen()
         default: return .stepNotHandled
         }
@@ -32,8 +33,18 @@ extension AppFlow {
 }
 
 private extension AppFlow {
-    var initialStep: Step { let step: AppStep = isLoggedIn ? .main : .signInOrSignUp; return step }
+    var initialStep: Step {
+        guard !isFirstRun else { return AppStep.firstStart }
+        let step: AppStep = isLoggedIn ? .mainStart : .authStart
+        return step
+    }
     var isLoggedIn: Bool { return false }
+    var isFirstRun: Bool { return true }
+    
+    func navigateToFirstRunScreen() -> NextFlowItems {
+        let firstRunFlow = FirstRunFlow(navigationViewController: navigationViewController, withService: authService)
+        return .one(flowItem: NextFlowItem(firstRunFlow))
+    }
     
     func navigateToSignInOrSignUpScreen() -> NextFlowItems {
         let authFlow = AuthFlow(navigationViewController: navigationViewController, withService: authService)

@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxFlow
+import RxDataSources
 import ViewComposer
 import TinyConstraints
 
@@ -38,13 +39,7 @@ final class MyStaysViewController: UIViewController {
 private extension MyStaysViewController {
     
     func setupBindings() {
-        //        signUpButton.rx.tap
-        //            .bind(to: viewModel.input.signUp)
-        //            .disposed(by: disposeBag)
-        //
-        //        signInButton.rx.tap
-        //            .bind(to: viewModel.input.signIn)
-        //            .disposed(by: disposeBag)
+
 //        viewModel.bookings.observeOn(MainScheduler.instance)
 //            .do(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() })
 //            .bind(to: tableView.rx.items(cellIdentifier: BookingCell.cellIdentifier, cellType: BookingCell.self))
@@ -53,9 +48,9 @@ private extension MyStaysViewController {
 //        //            }
 //        //            .disposed(by: disposeBag)
 //
-//        refreshControl.rx.controlEvent(.valueChanged)
-//            .bind(to: viewModel.reload)
-//            .disposed(by: disposeBag)
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind(to: viewModel.input.reload)
+            .disposed(by: disposeBag)
         
     }
     
@@ -81,11 +76,11 @@ final class BookingCell: UITableViewCell, CellIdentifiable {
 }
 extension Reactive where Base: UITableView {
     
-//    func iXtems<S, C, O>(cellType: C.Type = C.self)
-//        -> (_ source: O)
-//        -> (_ configureCell: @escaping (Int, S.Iterator.Element, C) -> Void)
-//        -> Disposable
-//        where O.E == S, O: ObservableType, S: Sequence, C: UITableViewCell & CellIdentifiable {
-//            return ite
-//    }
+    func iXtems<S, C, O>(cellType: C.Type = C.self)
+        -> (_ source: O)
+        -> (_ configureCell: @escaping (Int, S.Iterator.Element, C) -> Void)
+        -> Disposable
+        where O.E == S, O: ObservableType, S: Sequence, C: UITableViewCell & CellIdentifiable {
+            return items(cellIdentifier: C.cellIdentifier, cellType: C.self)
+    }
 }

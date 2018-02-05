@@ -12,9 +12,25 @@ import RxSwift
 
 final class MyStaysViewModel: Stepper {
     
-    let bookings: Observable<[Booking]>
+    struct Input {
+        let reload: AnyObserver<Void>
+    }
+    struct Output {
+        let bookings: Observable<[Booking]>
+    }
+
+    let input: Input
+    let output: Output
     
     init(service: BookingService) {
-        bookings = service.getBookings()
+        
+        let _reload = PublishSubject<Void>()
+        input = Input(
+            reload: _reload.asObserver()
+        )
+        
+        output = Output(
+            bookings: _reload.asObservable().flatMapLatest { service.getBookings() }
+        )
     }
 }

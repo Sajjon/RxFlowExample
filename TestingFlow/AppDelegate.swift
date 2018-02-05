@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HasDisposeBag {
         self.window = window
         coordinator.rx.didNavigate.subscribe(onNext: { (flow, step) in print("did navigate to flow=\(flow) and step=\(step)") }).disposed(by: disposeBag)
         Flows.whenReady(flow1: appFlow) { [unowned window] in window.rootViewController = $0 }
-        coordinator.coordinate(flow: appFlow, withStepper: OneStepper(withSingleStep: AppStep.initial))
+        coordinator.coordinate(flow: appFlow, withStepper: OneStepper(withSingleStep: AppStep.start))
         return true
     }
 }

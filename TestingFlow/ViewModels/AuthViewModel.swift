@@ -33,7 +33,7 @@ final class AuthViewModel: Stepper {
             signUp: _signUp.asObservable(),
             signIn: _signIn.asObservable()
         )
-        output.signUp.subscribe() { [unowned self] _ in self.step.accept(AppStep.signUp) }.disposed(by: bag)
-        output.signIn.subscribe() { [unowned self] _ in self.step.accept(AppStep.signIn) }.disposed(by: bag)
+        output.signUp.subscribe() { [unowned self] _ in self.step(to: .auth(.signUp)) }.disposed(by: bag)
+        output.signIn.subscribe() { [unowned self] _ in self.step(to: .auth(.signIn)) }.disposed(by: bag)
     }
 }
