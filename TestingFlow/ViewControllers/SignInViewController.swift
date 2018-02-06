@@ -18,13 +18,13 @@ let fieldStyle: ViewStyle = itemStyle <<- [.borderColor(.gray), .borderWidth(1)]
 let buttonStyle: ViewStyle = itemStyle <<- [.color(.green)]
 final class SignInViewController: UIViewController {
     
-    lazy var emailField: UITextField = fieldStyle <- .placeholder("Email")
-    lazy var passwordField: UITextField = fieldStyle <<- [.placeholder("Password"), .isSecureTextEntry(true)]
-    lazy var signInButton: UIButton = buttonStyle <- .text("Sign In")
+    private lazy var emailField: UITextField = fieldStyle <- .placeholder("Email")
+    private lazy var passwordField: UITextField = fieldStyle <<- [.placeholder("Password"), .isSecureTextEntry(true)]
+    private lazy var signInButton: UIButton = buttonStyle <- .text("Sign In")
     
-    lazy var stackView: UIStackView = stackViewStyle <- .views([self.emailField, self.passwordField, self.signInButton, .spacer])
+    private lazy var stackView: UIStackView = stackViewStyle <- .views([self.emailField, self.passwordField, self.signInButton, .spacer])
     
-    let viewModel: SignInViewModel
+    private let viewModel: SignInViewModel
     
     init(viewModel: SignInViewModel) {
         self.viewModel = viewModel

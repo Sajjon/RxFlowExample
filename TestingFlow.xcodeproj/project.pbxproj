@@ -11,12 +11,22 @@
 		481301DF2028541C00404423 /* BookingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301DE2028541C00404423 /* BookingService.swift */; };
 		481301E120286BAA00404423 /* MyStaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E020286BAA00404423 /* MyStaysViewController.swift */; };
 		481301E320286D0500404423 /* MyStaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E220286D0500404423 /* MyStaysViewModel.swift */; };
-		481301E52028797E00404423 /* ProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E42028797E00404423 /* ProfileFlow.swift */; };
+		481301E52028797E00404423 /* MyPageFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E42028797E00404423 /* MyPageFlow.swift */; };
 		481301E820287BFA00404423 /* RxFlow_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E720287BFA00404423 /* RxFlow_Extension.swift */; };
 		481301EA20287C2A00404423 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301E920287C2A00404423 /* ProfileViewModel.swift */; };
 		481301EC20287CF600404423 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301EB20287CF600404423 /* ProfileViewController.swift */; };
 		481301F02028AC2400404423 /* FirstRunFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301EF2028AC2400404423 /* FirstRunFlow.swift */; };
-		481301F42028AC9A00404423 /* AppStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301F32028AC9900404423 /* AppStarter.swift */; };
+		481301F72028B79E00404423 /* ApplePaySplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301F62028B79E00404423 /* ApplePaySplashViewController.swift */; };
+		481301F92028BA8F00404423 /* ApplePaySpashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301F82028BA8F00404423 /* ApplePaySpashViewModel.swift */; };
+		481301FB2029AC7B00404423 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301FA2029AC7B00404423 /* PermissionsViewController.swift */; };
+		481301FD2029AD0E00404423 /* PermissionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301FC2029AD0E00404423 /* PermissionsViewModel.swift */; };
+		481301FF2029B2A000404423 /* VersionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481301FE2029B2A000404423 /* VersionFlow.swift */; };
+		481302022029B3D200404423 /* MockForceUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481302012029B3D200404423 /* MockForceUpdateViewController.swift */; };
+		481302052029B41F00404423 /* MockForceUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481302042029B41F00404423 /* MockForceUpdateViewModel.swift */; };
+		481302072029B47100404423 /* AppConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481302062029B47100404423 /* AppConfigService.swift */; };
+		481302092029D0E700404423 /* ForceUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481302082029D0E700404423 /* ForceUpdateViewController.swift */; };
+		4813020B2029DFAF00404423 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813020A2029DFAF00404423 /* OnboardingViewModel.swift */; };
+		4813020D2029DFE000404423 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813020C2029DFE000404423 /* OnboardingViewController.swift */; };
 		48B3474020230FDA002A60B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3473F20230FDA002A60B9 /* AppDelegate.swift */; };
 		48B3474720230FDA002A60B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B3474620230FDA002A60B9 /* Assets.xcassets */; };
 		48B3474A20230FDA002A60B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B3474820230FDA002A60B9 /* LaunchScreen.storyboard */; };
@@ -39,12 +49,22 @@
 		481301DE2028541C00404423 /* BookingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingService.swift; sourceTree = "<group>"; };
 		481301E020286BAA00404423 /* MyStaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStaysViewController.swift; sourceTree = "<group>"; };
 		481301E220286D0500404423 /* MyStaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStaysViewModel.swift; sourceTree = "<group>"; };
-		481301E42028797E00404423 /* ProfileFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlow.swift; sourceTree = "<group>"; };
+		481301E42028797E00404423 /* MyPageFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageFlow.swift; sourceTree = "<group>"; };
 		481301E720287BFA00404423 /* RxFlow_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFlow_Extension.swift; sourceTree = "<group>"; };
 		481301E920287C2A00404423 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		481301EB20287CF600404423 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		481301EF2028AC2400404423 /* FirstRunFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunFlow.swift; sourceTree = "<group>"; };
-		481301F32028AC9900404423 /* AppStarter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStarter.swift; sourceTree = "<group>"; };
+		481301F62028B79E00404423 /* ApplePaySplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePaySplashViewController.swift; sourceTree = "<group>"; };
+		481301F82028BA8F00404423 /* ApplePaySpashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePaySpashViewModel.swift; sourceTree = "<group>"; };
+		481301FA2029AC7B00404423 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		481301FC2029AD0E00404423 /* PermissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewModel.swift; sourceTree = "<group>"; };
+		481301FE2029B2A000404423 /* VersionFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionFlow.swift; sourceTree = "<group>"; };
+		481302012029B3D200404423 /* MockForceUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockForceUpdateViewController.swift; sourceTree = "<group>"; };
+		481302042029B41F00404423 /* MockForceUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockForceUpdateViewModel.swift; sourceTree = "<group>"; };
+		481302062029B47100404423 /* AppConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigService.swift; sourceTree = "<group>"; };
+		481302082029D0E700404423 /* ForceUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateViewController.swift; sourceTree = "<group>"; };
+		4813020A2029DFAF00404423 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		4813020C2029DFE000404423 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		48B3473C20230FDA002A60B9 /* TestingFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestingFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B3473F20230FDA002A60B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B3474620230FDA002A60B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				481301DC202853E500404423 /* MyStaysFlow.swift */,
-				481301E42028797E00404423 /* ProfileFlow.swift */,
+				481301E42028797E00404423 /* MyPageFlow.swift */,
 			);
 			path = MainFlows;
 			sourceTree = "<group>";
@@ -123,6 +143,7 @@
 		481301F12028AC3100404423 /* NewVersionFlow */ = {
 			isa = PBXGroup;
 			children = (
+				481301FE2029B2A000404423 /* VersionFlow.swift */,
 			);
 			path = NewVersionFlow;
 			sourceTree = "<group>";
@@ -130,10 +151,37 @@
 		481301F22028AC6D00404423 /* AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
-				481301F32028AC9900404423 /* AppStarter.swift */,
 				48B3476D20237091002A60B9 /* AuthFlow.swift */,
 			);
 			path = AuthFlow;
+			sourceTree = "<group>";
+		};
+		481301F52028B77300404423 /* FirstRunViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				481301F62028B79E00404423 /* ApplePaySplashViewController.swift */,
+				481301FA2029AC7B00404423 /* PermissionsViewController.swift */,
+			);
+			path = FirstRunViewControllers;
+			sourceTree = "<group>";
+		};
+		481302002029B3B900404423 /* NewVersionViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				481302012029B3D200404423 /* MockForceUpdateViewController.swift */,
+				481302082029D0E700404423 /* ForceUpdateViewController.swift */,
+				4813020C2029DFE000404423 /* OnboardingViewController.swift */,
+			);
+			path = NewVersionViewControllers;
+			sourceTree = "<group>";
+		};
+		481302032029B40C00404423 /* NewVersionViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				481302042029B41F00404423 /* MockForceUpdateViewModel.swift */,
+				4813020A2029DFAF00404423 /* OnboardingViewModel.swift */,
+			);
+			path = NewVersionViewModels;
 			sourceTree = "<group>";
 		};
 		48B3473320230FDA002A60B9 = {
@@ -186,6 +234,7 @@
 			children = (
 				48B347702023718D002A60B9 /* AuthService.swift */,
 				481301DE2028541C00404423 /* BookingService.swift */,
+				481302062029B47100404423 /* AppConfigService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -193,6 +242,8 @@
 		48B34772202371A7002A60B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				481302002029B3B900404423 /* NewVersionViewControllers */,
+				481301F52028B77300404423 /* FirstRunViewControllers */,
 				48B34773202371B3002A60B9 /* AuthViewController.swift */,
 				48B3477820237294002A60B9 /* SignUpViewController.swift */,
 				48B3477C202372E9002A60B9 /* SignInViewController.swift */,
@@ -205,11 +256,14 @@
 		48B3477520237269002A60B9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				481302032029B40C00404423 /* NewVersionViewModels */,
 				48B3477620237275002A60B9 /* AuthViewModel.swift */,
 				48B3477A202372C1002A60B9 /* SignUpViewModel.swift */,
 				48B3477E20237305002A60B9 /* SignInViewModel.swift */,
 				481301E220286D0500404423 /* MyStaysViewModel.swift */,
 				481301E920287C2A00404423 /* ProfileViewModel.swift */,
+				481301F82028BA8F00404423 /* ApplePaySpashViewModel.swift */,
+				481301FC2029AD0E00404423 /* PermissionsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -319,6 +373,8 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework",
 				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewComposer/ViewComposer.framework",
 			);
@@ -329,6 +385,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectAutoregistration.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewComposer.framework",
 			);
@@ -363,22 +421,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B3477D202372E9002A60B9 /* SignInViewController.swift in Sources */,
+				481301F92028BA8F00404423 /* ApplePaySpashViewModel.swift in Sources */,
 				481301EA20287C2A00404423 /* ProfileViewModel.swift in Sources */,
 				481301EC20287CF600404423 /* ProfileViewController.swift in Sources */,
 				48B3474020230FDA002A60B9 /* AppDelegate.swift in Sources */,
+				481301FB2029AC7B00404423 /* PermissionsViewController.swift in Sources */,
+				481301FD2029AD0E00404423 /* PermissionsViewModel.swift in Sources */,
 				48B3476C20237073002A60B9 /* AppFlow.swift in Sources */,
 				48B3477B202372C1002A60B9 /* SignUpViewModel.swift in Sources */,
-				481301E52028797E00404423 /* ProfileFlow.swift in Sources */,
+				481302092029D0E700404423 /* ForceUpdateViewController.swift in Sources */,
+				481301E52028797E00404423 /* MyPageFlow.swift in Sources */,
 				481301DF2028541C00404423 /* BookingService.swift in Sources */,
-				481301F42028AC9A00404423 /* AppStarter.swift in Sources */,
 				48B347672023701F002A60B9 /* AppStep.swift in Sources */,
+				481302052029B41F00404423 /* MockForceUpdateViewModel.swift in Sources */,
 				48B34774202371B3002A60B9 /* AuthViewController.swift in Sources */,
+				481301FF2029B2A000404423 /* VersionFlow.swift in Sources */,
 				481301E320286D0500404423 /* MyStaysViewModel.swift in Sources */,
+				481302022029B3D200404423 /* MockForceUpdateViewController.swift in Sources */,
+				481302072029B47100404423 /* AppConfigService.swift in Sources */,
 				48B3477720237275002A60B9 /* AuthViewModel.swift in Sources */,
 				48B347712023718D002A60B9 /* AuthService.swift in Sources */,
+				481301F72028B79E00404423 /* ApplePaySplashViewController.swift in Sources */,
 				48B3477F20237305002A60B9 /* SignInViewModel.swift in Sources */,
 				48B3477920237294002A60B9 /* SignUpViewController.swift in Sources */,
 				481301DD202853E500404423 /* MyStaysFlow.swift in Sources */,
+				4813020B2029DFAF00404423 /* OnboardingViewModel.swift in Sources */,
+				4813020D2029DFE000404423 /* OnboardingViewController.swift in Sources */,
 				481301F02028AC2400404423 /* FirstRunFlow.swift in Sources */,
 				481301E120286BAA00404423 /* MyStaysViewController.swift in Sources */,
 				48B3476E20237091002A60B9 /* AuthFlow.swift in Sources */,

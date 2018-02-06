@@ -11,6 +11,9 @@ PODS:
     - RxSwift (>= 4.0.0)
   - RxSwift (4.1.1)
   - Sourcery (0.10.1)
+  - Swinject (2.1.1)
+  - SwinjectAutoregistration (2.1.1):
+    - Swinject (~> 2.1)
   - TinyConstraints (3.1.0)
   - ViewComposer (0.2.31):
     - Sourcery (> 0.8)
@@ -19,6 +22,8 @@ DEPENDENCIES:
   - RxDataSources
   - RxFlow
   - RxSwift
+  - Swinject
+  - SwinjectAutoregistration
   - TinyConstraints
   - ViewComposer (from `https://github.com/Sajjon/ViewComposer.git`)
 
@@ -38,9 +43,11 @@ SPEC CHECKSUMS:
   RxFlow: a15689752f0b8a97d903d8a425b217cefd887103
   RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
   Sourcery: ac71ac4d490f62fd381a9f3b558f3093d91bddd5
+  Swinject: afea49fd95f392b41171669f165842879c48fad6
+  SwinjectAutoregistration: d06b56bd8f912b9fb9c59c15181342558a734b1b
   TinyConstraints: 4721a4b303c799328867078ade6560e152df54d1
   ViewComposer: 9a79824697ab67eaf85f407a04e11f6cbe1c2df9
 
-PODFILE CHECKSUM: a15a1aa93e67c2231e9c903ac5b2ba2ccc78c8fd
+PODFILE CHECKSUM: de0c28c2854f35085fcda4132f45a6c8a599839d
 
 COCOAPODS: 1.4.0

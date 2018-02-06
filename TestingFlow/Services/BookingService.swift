@@ -14,5 +14,5 @@ struct Booking {
 }
 
 final class BookingService {
-    func getBookings() -> Observable<[Booking]> { return Observable.just(["Hobo", "The Thief", "At Six"].map { Booking(name: $0) }) }
+    func getBookings() -> Observable<[Booking]> { return .just(["Hobo", "The Thief", "At Six"].map { Booking(name: $0) }) }
 }

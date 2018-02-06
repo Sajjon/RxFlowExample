@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RxFlow
 
-final class ProfileFlow: Flow, Stepper {
+final class MyPageFlow: Flow, Stepper {
     
     private let navigationViewController = UINavigationController()
     private let authService: AuthService
@@ -21,7 +21,7 @@ final class ProfileFlow: Flow, Stepper {
     }
 }
 
-extension ProfileFlow {
+extension MyPageFlow {
     var root: UIViewController { return navigationViewController }
     
     func navigate(to step: Step) -> NextFlowItems {
@@ -34,7 +34,7 @@ extension ProfileFlow {
     }
 }
 
-private extension ProfileFlow {
+private extension MyPageFlow {
     func navigateToMyPageScreen() -> NextFlowItems {
         let viewModel = ProfileViewModel(service: authService)
         let viewController = ProfileViewController(viewModel: viewModel)

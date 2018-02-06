@@ -13,14 +13,12 @@ import TinyConstraints
 
 final class SignUpViewController: UIViewController {
     
-    lazy var emailField: UITextField = fieldStyle <- .placeholder("Email")
-    lazy var passwordField: UITextField = fieldStyle <<- [.placeholder("Password"), .isSecureTextEntry(true)]
-    lazy var signUpButton: UIButton = buttonStyle <<- [.text("Sign Up"), .color(.blue)]
+    private lazy var emailField: UITextField = fieldStyle <- .placeholder("Email")
+    private lazy var passwordField: UITextField = fieldStyle <<- [.placeholder("Password"), .isSecureTextEntry(true)]
+    private lazy var signUpButton: UIButton = buttonStyle <<- [.text("Sign Up"), .color(.blue)]
+    private lazy var stackView: UIStackView = stackViewStyle <- .views([self.emailField, self.passwordField, self.signUpButton, .spacer])
     
-    lazy var stackView: UIStackView = stackViewStyle <- .views([self.emailField, self.passwordField, self.signUpButton, .spacer])
-    
-    
-    let viewModel: SignUpViewModel
+    private let viewModel: SignUpViewModel
     
     init(viewModel: SignUpViewModel) {
         self.viewModel = viewModel

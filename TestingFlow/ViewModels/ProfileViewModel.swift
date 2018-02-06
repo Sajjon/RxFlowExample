@@ -21,12 +21,11 @@ final class ProfileViewModel: Stepper {
     var email: Observable<String>
     let firstName: Observable<String>
     let lastName: Observable<String>
-    lazy var name: Observable<String> = Observable.combineLatest(firstName, lastName) { f, l in return "\(f) \(l)" }
+    lazy var name: Observable<String> = Observable.combineLatest(firstName, lastName) { "\($0) \($1)" }
     
     private let service: AuthService
     
     init(service: AuthService) {
-        print("CREATING PROFILE VIEWMODEL")
         self.service = service
         let account = service.getAccount()
         email = account.map { $0.email }

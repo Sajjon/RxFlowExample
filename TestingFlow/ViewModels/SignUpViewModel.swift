@@ -42,6 +42,6 @@ final class SignUpViewModel: Stepper {
                     authService.signUp(email: $0, password: $1)
             }
         )
-        output.signUp.subscribe() { [unowned self] _ in self.step(to: .mainStart) }.disposed(by: bag)
+        output.signUp.subscribe() { [unowned self] _ in self.step(to: .auth(.signUpDone)) }.disposed(by: bag)
     }
 }

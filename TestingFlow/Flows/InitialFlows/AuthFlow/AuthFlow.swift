@@ -9,15 +9,20 @@
 import UIKit
 import RxFlow
 
-final class AuthFlow: AppStarter, Stepper {
+final class AuthFlow: Flow, Stepper {
     
-    let navigationViewController: UINavigationController
-    let authService: AuthService
+    private let navigationViewController: UINavigationController
+    private let authService: AuthService
     
-    init(navigationViewController: UINavigationController, withService service: AuthService) {
+    init(navigationViewController: UINavigationController, service: AuthService) {
         self.navigationViewController = navigationViewController
         self.authService = service
         self.step(to: .authStart)
+    }
+    
+    
+    deinit {
+        print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ AUTH flow DEINIT ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
     }
 }
 
@@ -27,10 +32,11 @@ extension AuthFlow {
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return .stepNotHandled }
         switch step {
-        case .auth(.start): return navigateToSignInOrSignUpScreen()
+        case .auth(.start): return  navigate(to: AppStep.auth(.signInOrSignUp))
+        case .auth(.signInOrSignUp): return navigateToSignInOrSignUpScreen()
         case .auth(.signIn): return navigateToSignInScreen()
         case .auth(.signUp): return navigateToSignUpScreen()
-        case .main: return navigateToMainScreen()
+        case .auth(.signInDone), .auth(.signUpDone): self.step(to: .auth(.done)); return .none
         default: return .stepNotHandled
         }
     }

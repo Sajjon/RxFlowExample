@@ -9,5 +9,7 @@ target 'TestingFlow' do
   pod 'RxFlow'
   pod 'RxDataSources'
   pod 'TinyConstraints'
+  pod 'Swinject'
+  pod 'SwinjectAutoregistration'
   pod 'ViewComposer', :git => 'https://github.com/Sajjon/ViewComposer.git'
 end
