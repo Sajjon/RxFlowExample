@@ -11,7 +11,7 @@ import RxFlow
 
 final class VersionFlow: Flow, Stepper {
     
-    private let navigationViewController = UINavigationController()
+    private let navigationController = UINavigationController()
     private let service: AppConfigService
     
     init(service: AppConfigService) {
@@ -26,7 +26,7 @@ final class VersionFlow: Flow, Stepper {
 }
 
 extension VersionFlow {
-    var root: UIViewController { return navigationViewController }
+    var root: UIViewController { return navigationController }
     
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return .stepNotHandled }
@@ -45,21 +45,21 @@ private extension VersionFlow {
     func navigateToMockForceUpdateScreen() -> NextFlowItems {
         let viewModel = MockForceUpdateViewModel(service: service)
         let viewController = MockForceUpdateViewController(viewModel: viewModel)
-        navigationViewController.viewControllers = [viewController]
+        navigationController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToForceUpdateBlockingScreen() -> NextFlowItems {
         let viewModel = MockForceUpdateViewModel(service: service)
         let viewController = ForceUpdateViewController(viewModel: viewModel)
-        navigationViewController.viewControllers = [viewController]
+        navigationController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToOnboardingScreen() -> NextFlowItems {
         let viewModel = OnboardingViewModel()
         let viewController = OnboardingViewController(viewModel: viewModel)
-        navigationViewController.viewControllers = [viewController]
+        navigationController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     

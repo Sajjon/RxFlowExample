@@ -11,7 +11,7 @@ import RxFlow
 
 final class FirstRunFlow: Flow, Stepper {
     
-    private let navigationViewController = UINavigationController()
+    private let navigationController = UINavigationController()
     private let authService: AuthService
     
     init(service: AuthService) {
@@ -25,7 +25,7 @@ final class FirstRunFlow: Flow, Stepper {
 }
 
 extension FirstRunFlow {
-    var root: UIViewController { return navigationViewController }
+    var root: UIViewController { return navigationController }
     
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return .stepNotHandled }
@@ -47,14 +47,14 @@ private extension FirstRunFlow {
     func navigateToApplePaySplashScreen() -> NextFlowItems {
         let viewModel = ApplePaySpashViewModel()
         let viewController = ApplePaySplashViewController(viewModel: viewModel)
-        navigationViewController.viewControllers = [viewController]
+        Flows.whenReady(flow1: self, block: { [weak self] _ in self?.navigationController.viewControllers = [viewController] })
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToPermissionsScreen() -> NextFlowItems {
         let viewModel = PermissionsViewModel()
         let viewController = PermissionsViewController(viewModel: viewModel)
-        navigationViewController.viewControllers = [viewController]
+        navigationController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
 

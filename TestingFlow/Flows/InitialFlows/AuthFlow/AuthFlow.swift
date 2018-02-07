@@ -11,7 +11,7 @@ import RxFlow
 
 final class AuthFlow: Flow, Stepper {
     
-    private let navigationViewController = UINavigationController()
+    private let navigationController = UINavigationController()
     private let authService: AuthService
     
     init(service: AuthService) {
@@ -26,7 +26,7 @@ final class AuthFlow: Flow, Stepper {
 }
 
 extension AuthFlow {
-    var root: UIViewController { return navigationViewController }
+    var root: UIViewController { return navigationController }
     
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return .stepNotHandled }
@@ -45,21 +45,21 @@ private extension AuthFlow {
     func navigateToSignInOrSignUpScreen() -> NextFlowItems {
         let viewModel = AuthViewModel()
         let viewController = AuthViewController(viewModel: viewModel)
-        navigationViewController.viewControllers = [viewController]
+        navigationController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToSignUpScreen() -> NextFlowItems {
         let viewModel = SignUpViewModel(authService: authService)
         let viewController = SignUpViewController(viewModel: viewModel)
-        navigationViewController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToSignInScreen() -> NextFlowItems {
         let viewModel = SignInViewModel(authService: authService)
         let viewController = SignInViewController(viewModel: viewModel)
-        navigationViewController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
 }

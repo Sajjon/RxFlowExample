@@ -12,14 +12,14 @@ import Swinject
 import SwinjectAutoregistration
 
 final class AppFlow: Flow, Stepper {
-    let navigationViewController = UINavigationController()
+    private let navigationController = UINavigationController()
     
     private let container: Container
     private lazy var authService = container ~> AuthService.self
     private lazy var appConfigService = container ~> AppConfigService.self
     
     init(container parent: Container) {
-        navigationViewController.view.backgroundColor = .green
+        navigationController.view.backgroundColor = .green
         container = makeContainer(parent: parent)
         step(to: .start)
     }
@@ -37,7 +37,7 @@ private func makeContainer(parent: Container) -> Container {
 }
 
 extension AppFlow {
-    var root: UIViewController { return navigationViewController }
+    var root: UIViewController { return navigationController }
     
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return .stepNotHandled }
@@ -46,17 +46,17 @@ extension AppFlow {
             
         case .first(.start): return startFirstRunFlow()
         case .first(.done):
-            navigationViewController.presentedViewController?.dismiss(animated: false)
+            navigationController.presentedViewController?.dismiss(animated: false)
             return navigate(to: AppStep.versionStart)
             
         case .version(.start): return startVersionFlow()
         case .version(.done):
-            navigationViewController.presentedViewController?.dismiss(animated: false)
+            navigationController.presentedViewController?.dismiss(animated: false)
             return navigate(to: AppStep.authStart)
             
         case .auth(.start): return startAuthFlow()
         case .auth(.done):
-            navigationViewController.presentedViewController?.dismiss(animated: false)
+            navigationController.presentedViewController?.dismiss(animated: false)
             return navigate(to: AppStep.mainStart)
             
         case .main(.start): return startMainFlow()
@@ -83,21 +83,21 @@ private extension AppFlow {
     func startFirstRunFlow() -> NextFlowItems {
         print("💜💜💜💜💜 Start First Flow")
         let firstRunFlow = FirstRunFlow(service: authService)
-        Flows.whenReady(flow1: firstRunFlow) { [weak self] in self?.navigationViewController.present($0, animated: false, completion: nil) }
+        Flows.whenReady(flow1: firstRunFlow) { [weak self] in self?.navigationController.present($0, animated: false, completion: nil) }
         return .one(flowItem: NextFlowItem(firstRunFlow))
     }
     
     func startVersionFlow() -> NextFlowItems {
         print("💚💚💚💚💚💚 Start Version Flow")
         let flow = VersionFlow(service: appConfigService)
-        Flows.whenReady(flow1: flow) { [weak self] in self?.navigationViewController.present($0, animated: false, completion: nil) }
+        Flows.whenReady(flow1: flow) { [weak self] in self?.navigationController.present($0, animated: false, completion: nil) }
         return .one(flowItem: NextFlowItem(flow))
     }
     
     func startAuthFlow() -> NextFlowItems {
         print("💙💙💙💙💙💙 Start Auth Flow")
         let flow = AuthFlow(service: authService)
-        Flows.whenReady(flow1: flow) { [weak self] in self?.navigationViewController.present($0, animated: false, completion: nil) }
+        Flows.whenReady(flow1: flow) { [weak self] in self?.navigationController.present($0, animated: false, completion: nil) }
         return .one(flowItem: NextFlowItem(flow))
     }
     
@@ -114,7 +114,7 @@ private extension AppFlow {
             tab2Root.tabBarItem = tabBarItem2
             
             tabbarController.setViewControllers([tab1Root, tab2Root], animated: false)
-            self.navigationViewController.viewControllers = [tabbarController]
+            self.navigationController.viewControllers = [tabbarController]
         })
         
         return .multiple(flowItems: [
