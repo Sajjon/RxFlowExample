@@ -42,7 +42,7 @@ private extension OnboardingViewController {
     
     func setupViews() {
         title = "Whats new?"
-        view.backgroundColor = .white
+        collectionView.backgroundColor = .white
         
         navigationItem.rightBarButtonItem = doneButton
         

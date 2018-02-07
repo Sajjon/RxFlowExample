@@ -11,11 +11,10 @@ import RxFlow
 
 final class VersionFlow: Flow, Stepper {
     
-    let navigationViewController: UINavigationController
-    let service: AppConfigService
+    private let navigationViewController = UINavigationController()
+    private let service: AppConfigService
     
-    init(navigationViewController: UINavigationController, service: AppConfigService) {
-        self.navigationViewController = navigationViewController
+    init(service: AppConfigService) {
         self.service = service
         step(to: .versionStart)
     }
@@ -46,33 +45,21 @@ private extension VersionFlow {
     func navigateToMockForceUpdateScreen() -> NextFlowItems {
         let viewModel = MockForceUpdateViewModel(service: service)
         let viewController = MockForceUpdateViewController(viewModel: viewModel)
-        
-//        Flows.whenReady(flow1: self, block: { [unowned self] _ in
-            self.navigationViewController.viewControllers = [viewController]
-//        })
-        
+        navigationViewController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToForceUpdateBlockingScreen() -> NextFlowItems {
         let viewModel = MockForceUpdateViewModel(service: service)
         let viewController = ForceUpdateViewController(viewModel: viewModel)
-        
-//        Flows.whenReady(flow1: self, block: { [unowned self] _ in
-            self.navigationViewController.viewControllers = [viewController]
-//        })
-        
+        navigationViewController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToOnboardingScreen() -> NextFlowItems {
         let viewModel = OnboardingViewModel()
         let viewController = OnboardingViewController(viewModel: viewModel)
-
-//        Flows.whenReady(flow1: self, block: { [unowned self] _ in
-            self.navigationViewController.viewControllers = [viewController]
-//        })
-
+        navigationViewController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     

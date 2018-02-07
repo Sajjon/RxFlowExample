@@ -56,7 +56,7 @@ private extension MyStaysViewController {
     
     func setupViews() {
         title = "My stays"
-        view.backgroundColor = .purple
+        tableView.backgroundColor = .purple
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.insertSubview(refreshControl, at: 0)

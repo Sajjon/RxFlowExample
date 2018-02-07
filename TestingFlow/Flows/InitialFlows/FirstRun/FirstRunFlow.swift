@@ -11,11 +11,10 @@ import RxFlow
 
 final class FirstRunFlow: Flow, Stepper {
     
-    let navigationViewController: UINavigationController
-    let authService: AuthService
+    private let navigationViewController = UINavigationController()
+    private let authService: AuthService
     
-    init(navigationViewController: UINavigationController, service: AuthService) {
-        self.navigationViewController = navigationViewController
+    init(service: AuthService) {
         self.authService = service
         step(to: .firstStart)
     }
@@ -35,7 +34,9 @@ extension FirstRunFlow {
         case .first(.applePay): return navigateToApplePaySplashScreen()
         case .first(.applePayDone): return navigate(to: AppStep.first(.permissions))
         case .first(.permissions): return navigateToPermissionsScreen()
-        case .first(.permissionsDone): return navigateToNextFlow()
+        case .first(.permissionsDone):
+            self.step(to: .first(.done)) // same as `self.step.accept(AppStep.first(.done))`
+            return .none
         default: return .stepNotHandled
         }
     }
@@ -43,30 +44,19 @@ extension FirstRunFlow {
 
 private extension FirstRunFlow {
     
-    
     func navigateToApplePaySplashScreen() -> NextFlowItems {
         let viewModel = ApplePaySpashViewModel()
         let viewController = ApplePaySplashViewController(viewModel: viewModel)
-        
-                navigationViewController.viewControllers = [viewController]
-//        navigationViewController.pushViewController(viewController, animated: true)
-        
+        navigationViewController.viewControllers = [viewController]
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToPermissionsScreen() -> NextFlowItems {
         let viewModel = PermissionsViewModel()
         let viewController = PermissionsViewController(viewModel: viewModel)
-        
         navigationViewController.viewControllers = [viewController]
-//        navigationViewController.pushViewController(viewController, animated: true)
-        
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
-    
-    func navigateToNextFlow() -> NextFlowItems {
-        step(to: .first(.done))
-        return .none
-    }
+
 }
 

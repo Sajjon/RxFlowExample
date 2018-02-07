@@ -19,6 +19,7 @@ final class AppFlow: Flow, Stepper {
     private lazy var appConfigService = container ~> AppConfigService.self
     
     init(container parent: Container) {
+        navigationViewController.view.backgroundColor = .green
         container = makeContainer(parent: parent)
         step(to: .start)
     }
@@ -44,13 +45,19 @@ extension AppFlow {
         case .start: return navigate(to: initialStep)
             
         case .first(.start): return startFirstRunFlow()
-        case .first(.done): return navigate(to: AppStep.versionStart)
+        case .first(.done):
+            navigationViewController.presentedViewController?.dismiss(animated: false)
+            return navigate(to: AppStep.versionStart)
             
         case .version(.start): return startVersionFlow()
-        case .version(.done): return  navigate(to: AppStep.authStart)
+        case .version(.done):
+            navigationViewController.presentedViewController?.dismiss(animated: false)
+            return navigate(to: AppStep.authStart)
             
         case .auth(.start): return startAuthFlow()
-        case .auth(.done): return navigate(to: AppStep.mainStart)
+        case .auth(.done):
+            navigationViewController.presentedViewController?.dismiss(animated: false)
+            return navigate(to: AppStep.mainStart)
             
         case .main(.start): return startMainFlow()
         default: return .stepNotHandled
@@ -74,22 +81,28 @@ private extension AppFlow {
     var isFirstRun: Bool { return true }
     
     func startFirstRunFlow() -> NextFlowItems {
-        let firstRunFlow = FirstRunFlow(navigationViewController: navigationViewController, service: authService)
+        print("💜💜💜💜💜 Start First Flow")
+        let firstRunFlow = FirstRunFlow(service: authService)
+        Flows.whenReady(flow1: firstRunFlow) { [weak self] in self?.navigationViewController.present($0, animated: false, completion: nil) }
         return .one(flowItem: NextFlowItem(firstRunFlow))
     }
     
     func startVersionFlow() -> NextFlowItems {
-        let versionFlow = VersionFlow(navigationViewController: navigationViewController, service: appConfigService)
-        return .one(flowItem: NextFlowItem(versionFlow))
+        print("💚💚💚💚💚💚 Start Version Flow")
+        let flow = VersionFlow(service: appConfigService)
+        Flows.whenReady(flow1: flow) { [weak self] in self?.navigationViewController.present($0, animated: false, completion: nil) }
+        return .one(flowItem: NextFlowItem(flow))
     }
     
     func startAuthFlow() -> NextFlowItems {
-        let authFlow = AuthFlow(navigationViewController: navigationViewController, service: authService)
-        return .one(flowItem: NextFlowItem(authFlow))
+        print("💙💙💙💙💙💙 Start Auth Flow")
+        let flow = AuthFlow(service: authService)
+        Flows.whenReady(flow1: flow) { [weak self] in self?.navigationViewController.present($0, animated: false, completion: nil) }
+        return .one(flowItem: NextFlowItem(flow))
     }
     
     func startMainFlow() -> NextFlowItems {
-        print("*** STARTING APP ***")
+        print("💛💛💛💛💛 STARTING APP 💛")
         
         let tabbarController = UITabBarController()
         let myStaysFlow = MyStaysFlow(bookingService: BookingService())

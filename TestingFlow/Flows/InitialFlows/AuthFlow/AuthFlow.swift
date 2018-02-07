@@ -11,11 +11,10 @@ import RxFlow
 
 final class AuthFlow: Flow, Stepper {
     
-    private let navigationViewController: UINavigationController
+    private let navigationViewController = UINavigationController()
     private let authService: AuthService
     
-    init(navigationViewController: UINavigationController, service: AuthService) {
-        self.navigationViewController = navigationViewController
+    init(service: AuthService) {
         self.authService = service
         self.step(to: .authStart)
     }
@@ -47,21 +46,20 @@ private extension AuthFlow {
         let viewModel = AuthViewModel()
         let viewController = AuthViewController(viewModel: viewModel)
         navigationViewController.viewControllers = [viewController]
-//        self.navigationViewController.pushViewController(viewController, animated: true)
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToSignUpScreen() -> NextFlowItems {
         let viewModel = SignUpViewModel(authService: authService)
         let viewController = SignUpViewController(viewModel: viewModel)
-        self.navigationViewController.pushViewController(viewController, animated: true)
+        navigationViewController.pushViewController(viewController, animated: true)
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
     func navigateToSignInScreen() -> NextFlowItems {
         let viewModel = SignInViewModel(authService: authService)
         let viewController = SignInViewController(viewModel: viewModel)
-        self.navigationViewController.pushViewController(viewController, animated: true)
+        navigationViewController.pushViewController(viewController, animated: true)
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
 }
