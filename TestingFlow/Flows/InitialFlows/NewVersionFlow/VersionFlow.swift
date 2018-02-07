@@ -47,9 +47,9 @@ private extension VersionFlow {
         let viewModel = MockForceUpdateViewModel(service: service)
         let viewController = MockForceUpdateViewController(viewModel: viewModel)
         
-        Flows.whenReady(flow1: self, block: { [unowned self] _ in
+//        Flows.whenReady(flow1: self, block: { [unowned self] _ in
             self.navigationViewController.viewControllers = [viewController]
-        })
+//        })
         
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
@@ -58,9 +58,9 @@ private extension VersionFlow {
         let viewModel = MockForceUpdateViewModel(service: service)
         let viewController = ForceUpdateViewController(viewModel: viewModel)
         
-        Flows.whenReady(flow1: self, block: { [unowned self] _ in
+//        Flows.whenReady(flow1: self, block: { [unowned self] _ in
             self.navigationViewController.viewControllers = [viewController]
-        })
+//        })
         
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
@@ -69,9 +69,9 @@ private extension VersionFlow {
         let viewModel = OnboardingViewModel()
         let viewController = OnboardingViewController(viewModel: viewModel)
 
-        Flows.whenReady(flow1: self, block: { [unowned self] _ in
+//        Flows.whenReady(flow1: self, block: { [unowned self] _ in
             self.navigationViewController.viewControllers = [viewController]
-        })
+//        })
 
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
@@ -79,8 +79,6 @@ private extension VersionFlow {
     
     func navigateToNextFlow() -> NextFlowItems {
         step(to: .version(.done))
-        navigationViewController.presentedViewController?.dismiss(animated: true)
-//        navigationViewController.dismiss(animated: true, completion: nil)
         return .none
     }
 }

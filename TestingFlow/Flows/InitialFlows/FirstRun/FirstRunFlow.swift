@@ -48,8 +48,8 @@ private extension FirstRunFlow {
         let viewModel = ApplePaySpashViewModel()
         let viewController = ApplePaySplashViewController(viewModel: viewModel)
         
-        //        navigationViewController.viewControllers = [viewController]
-        navigationViewController.pushViewController(viewController, animated: true)
+                navigationViewController.viewControllers = [viewController]
+//        navigationViewController.pushViewController(viewController, animated: true)
         
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
@@ -58,8 +58,8 @@ private extension FirstRunFlow {
         let viewModel = PermissionsViewModel()
         let viewController = PermissionsViewController(viewModel: viewModel)
         
-//        navigationViewController.viewControllers = [viewController]
-        navigationViewController.pushViewController(viewController, animated: true)
+        navigationViewController.viewControllers = [viewController]
+//        navigationViewController.pushViewController(viewController, animated: true)
         
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }

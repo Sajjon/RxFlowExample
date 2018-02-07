@@ -27,6 +27,7 @@
 		481302092029D0E700404423 /* ForceUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481302082029D0E700404423 /* ForceUpdateViewController.swift */; };
 		4813020B2029DFAF00404423 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813020A2029DFAF00404423 /* OnboardingViewModel.swift */; };
 		4813020D2029DFE000404423 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813020C2029DFE000404423 /* OnboardingViewController.swift */; };
+		48130210202A049C00404423 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813020F202A049C00404423 /* SignUpView.swift */; };
 		48B3474020230FDA002A60B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3473F20230FDA002A60B9 /* AppDelegate.swift */; };
 		48B3474720230FDA002A60B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B3474620230FDA002A60B9 /* Assets.xcassets */; };
 		48B3474A20230FDA002A60B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B3474820230FDA002A60B9 /* LaunchScreen.storyboard */; };
@@ -65,6 +66,7 @@
 		481302082029D0E700404423 /* ForceUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateViewController.swift; sourceTree = "<group>"; };
 		4813020A2029DFAF00404423 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		4813020C2029DFE000404423 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4813020F202A049C00404423 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		48B3473C20230FDA002A60B9 /* TestingFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestingFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B3473F20230FDA002A60B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B3474620230FDA002A60B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 			path = NewVersionViewModels;
 			sourceTree = "<group>";
 		};
+		4813020E202A048E00404423 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4813020F202A049C00404423 /* SignUpView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		48B3473320230FDA002A60B9 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +215,7 @@
 		48B3473E20230FDA002A60B9 /* TestingFlow */ = {
 			isa = PBXGroup;
 			children = (
+				4813020E202A048E00404423 /* Views */,
 				48B3473F20230FDA002A60B9 /* AppDelegate.swift */,
 				48B347662023701F002A60B9 /* AppStep.swift */,
 				48B3474620230FDA002A60B9 /* Assets.xcassets */,
@@ -434,6 +445,7 @@
 				481301DF2028541C00404423 /* BookingService.swift in Sources */,
 				48B347672023701F002A60B9 /* AppStep.swift in Sources */,
 				481302052029B41F00404423 /* MockForceUpdateViewModel.swift in Sources */,
+				48130210202A049C00404423 /* SignUpView.swift in Sources */,
 				48B34774202371B3002A60B9 /* AuthViewController.swift in Sources */,
 				481301FF2029B2A000404423 /* VersionFlow.swift in Sources */,
 				481301E320286D0500404423 /* MyStaysViewModel.swift in Sources */,

@@ -12,12 +12,8 @@ import ViewComposer
 import TinyConstraints
 
 final class SignUpViewController: UIViewController {
-    
-    private lazy var emailField: UITextField = fieldStyle <- .placeholder("Email")
-    private lazy var passwordField: UITextField = fieldStyle <<- [.placeholder("Password"), .isSecureTextEntry(true)]
-    private lazy var signUpButton: UIButton = buttonStyle <<- [.text("Sign Up"), .color(.blue)]
-    private lazy var stackView: UIStackView = stackViewStyle <- .views([self.emailField, self.passwordField, self.signUpButton, .spacer])
-    
+
+    private lazy var signUpView = SignUpView()
     private let viewModel: SignUpViewModel
     
     init(viewModel: SignUpViewModel) {
@@ -29,7 +25,6 @@ final class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupViews()
         setupBindings()
     }
@@ -38,23 +33,24 @@ final class SignUpViewController: UIViewController {
 private extension SignUpViewController {
     
     func setupBindings() {
-        
-        emailField.rx.text.orEmpty
+        signUpView.emailField.rx.text.orEmpty
             .bind(to: viewModel.input.email)
             .disposed(by: disposeBag)
         
-        passwordField.rx.text.orEmpty
+        signUpView.passwordField.rx.text.orEmpty
             .bind(to: viewModel.input.password)
             .disposed(by: disposeBag)
         
-        signUpButton.rx.tap
+        signUpView.signUpButton.rx.tap
             .bind(to: viewModel.input.signUp)
             .disposed(by: disposeBag)
     }
     
     func setupViews() {
         title = "Sign Up"
-        view.addSubview(stackView)
-        stackView.edgesToSuperview()
+        view.backgroundColor = .white
+        
+        view.addSubview(signUpView)
+        signUpView.edgesToSuperview()
     }
 }

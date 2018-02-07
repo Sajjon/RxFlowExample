@@ -46,7 +46,8 @@ private extension AuthFlow {
     func navigateToSignInOrSignUpScreen() -> NextFlowItems {
         let viewModel = AuthViewModel()
         let viewController = AuthViewController(viewModel: viewModel)
-        self.navigationViewController.pushViewController(viewController, animated: true)
+        navigationViewController.viewControllers = [viewController]
+//        self.navigationViewController.pushViewController(viewController, animated: true)
         return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
     
