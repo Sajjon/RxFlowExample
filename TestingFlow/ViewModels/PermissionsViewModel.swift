@@ -13,10 +13,10 @@ import RxFlow
 
 final class PermissionsViewModel: Stepper {
     struct Input {
-        let setup: AnyObserver<Void>
+        let allow: AnyObserver<Void>
     }
     struct Output {
-        let setup: Observable<Void>
+        let allow: Observable<Void>
     }
     let input: Input
     let output: Output
@@ -24,13 +24,13 @@ final class PermissionsViewModel: Stepper {
     private let bag = DisposeBag()
     
     init() {
-        let _setup = PublishSubject<Void>()
+        let _allow = PublishSubject<Void>()
         input = Input(
-            setup: _setup.asObserver()
+            allow: _allow.asObserver()
         )
         output = Output(
-            setup: _setup.asObservable()
+            allow: _allow.asObservable()
         )
-        output.setup.subscribe() { [unowned self] _ in self.step(to: .first(.permissionsDone)) }.disposed(by: bag)
+        output.allow.subscribe() { [unowned self] _ in self.step(to: .first(.permissionsDone)) }.disposed(by: bag)
     }
 }

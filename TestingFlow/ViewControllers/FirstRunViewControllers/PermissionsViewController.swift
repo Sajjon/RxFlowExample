@@ -35,7 +35,7 @@ private extension PermissionsViewController {
     func setupBindings() {
         
         nextButton.rx.tap
-            .bind(to: viewModel.input.setup)
+            .bind(to: viewModel.input.allow)
             .disposed(by: disposeBag)
     }
     
